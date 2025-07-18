@@ -19,7 +19,7 @@ const App: React.FC = () => {
 };
 
 const AuthWrapper: React.FC = () => {
-  const { user, loading } = useBasicAuth();
+  const { user, loading, setUser } = useBasicAuth();
 
   if (loading) {
     return (
@@ -38,7 +38,7 @@ const AuthWrapper: React.FC = () => {
   }
 
   if (!user) {
-    return <BasicAuth onAuthSuccess={() => {}} />;
+    return <BasicAuth onAuthSuccess={setUser} />;
   }
 
   return <EnhancedMainApp />;
